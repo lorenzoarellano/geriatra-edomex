@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "geriatraatizapan"
+  },
+  "targets": {
+    "geriatraatizapan": {
+      "hosting": {
+        "geriatraatizapan": [
+          "geriatraatizapan"
+        ],
+        "geriatriaarboledas": [
+          "geriatriaarboledas"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "dr-eduardo-pacheco-geriatra",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "deploy:esmeralda": "cross-env NUXT_PUBLIC_SITE_ID=esmeralda nuxt generate && firebase deploy --only hosting:geriatraatizapan",
+    "deploy:arboledas": "cross-env NUXT_PUBLIC_SITE_ID=arboledas nuxt generate && firebase deploy --only hosting:geriatriaarboledas"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "gsap": "^3.12.5",
+    "lucide-vue-next": "^0.468.0",
+    "nuxt": "^3.14.1592",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^0.7.4",
+    "@nuxt/image": "^1.8.1",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/robots": "^5.7.1",
+    "@nuxtjs/sitemap": "^7.6.0",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.10.2",
+    "cross-env": "^7.0.3",
+    "firebase-tools": "^13.35.1",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2",
+    "vue-tsc": "^2.1.10"
+  }
+}
