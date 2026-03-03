@@ -174,7 +174,13 @@ const personSchema = {
   honorificPrefix: 'Dr.',
   jobTitle: 'Médico Geriatra',
   description: 'Médico Geriatra egresado del IPN y especialista por la UNAM. Atiende a adultos mayores en Cd. López Mateos y Tlalnepantla de Baz, Estado de México.',
-  image: `${site.canonicalUrl}/hero1.webp`,
+  image: {
+    '@type': 'ImageObject',
+    url: `${site.canonicalUrl}/hero1.webp`,
+    width: '800',
+    height: '900',
+    caption: 'Dr. Jorge Eduardo Pacheco Ponce – Médico Geriatra',
+  },
   url: site.canonicalUrl,
   telephone: site.phone,
   nationality: { '@type': 'Country', name: 'México' },
@@ -239,7 +245,7 @@ const personSchema = {
     },
   ],
   sameAs: [
-    'https://www.doctoralia.com.mx/jorge-eduardo-pacheco-ponce/geriatra-medico-general/ciudad-lopez-mateos',
+    site.doctoraliaUrl,
     'https://geriatraatizapan.com',
     'https://geriatriaarboledas.com',
   ],
@@ -489,16 +495,18 @@ const reviewSchema = {
   ],
 }
 
-// ── 7. WebPage + SpeakableSpecification ───────────────────────
+// ── 7. MedicalWebPage + SpeakableSpecification ───────────────
 const webPageSchema = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
+  '@type': 'MedicalWebPage',
   '@id': `${site.canonicalUrl}/#webpage`,
   url: site.canonicalUrl,
   name: site.seoTitle,
   description: site.seoDescription,
   inLanguage: 'es-MX',
-  isPartOf: { '@type': 'WebSite', url: site.canonicalUrl },
+  audience: { '@type': 'Patient' },
+  medicalAudience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
+  isPartOf: { '@type': 'WebSite', '@id': `${site.canonicalUrl}/#website`, url: site.canonicalUrl },
   speakable: {
     '@type': 'SpeakableSpecification',
     cssSelector: [
@@ -509,6 +517,23 @@ const webPageSchema = {
       '#acerca-de h3',
       '#servicios h3',
     ],
+  },
+}
+
+// ── 9. WebSite + SearchAction ─────────────────────────────────
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${site.canonicalUrl}/#website`,
+  url: site.canonicalUrl,
+  name: site.seoTitle,
+  description: site.seoDescription,
+  inLanguage: 'es-MX',
+  publisher: { '@id': `${site.canonicalUrl}/#physician` },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${site.canonicalUrl}/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
   },
 }
 
@@ -566,6 +591,7 @@ useHead({
     { type: 'application/ld+json', innerHTML: JSON.stringify(howToSchema) },
     { type: 'application/ld+json', innerHTML: JSON.stringify(reviewSchema) },
     { type: 'application/ld+json', innerHTML: JSON.stringify(webPageSchema) },
+    { type: 'application/ld+json', innerHTML: JSON.stringify(webSiteSchema) },
     { type: 'application/ld+json', innerHTML: JSON.stringify(breadcrumbSchema) },
   ],
 })

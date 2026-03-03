@@ -53,11 +53,29 @@ onMounted(() => {
 const accept = () => {
   localStorage.setItem(STORAGE_KEY, 'all')
   accepted.value = true
+  // GA4 Consent Mode v2 — conceder analytics al aceptar
+  if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+    ;(window as any).gtag('consent', 'update', {
+      analytics_storage: 'granted',
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+    })
+  }
 }
 
 const reject = () => {
   localStorage.setItem(STORAGE_KEY, 'necessary')
   accepted.value = true
+  // GA4 Consent Mode v2 — mantener denegado explícitamente
+  if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+    ;(window as any).gtag('consent', 'update', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+    })
+  }
 }
 </script>
 

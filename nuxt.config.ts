@@ -1,4 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// Determinar configuración del sitio en build time según NUXT_PUBLIC_SITE_ID
+const SITE_ID = process.env.NUXT_PUBLIC_SITE_ID ?? 'esmeralda'
+const SITE_URLS: Record<string, { url: string; name: string }> = {
+  esmeralda: {
+    url: 'https://geriatraatizapan.com',
+    name: 'Dr. Eduardo Pacheco Ponce – Geriatra en Cd. López Mateos | Centro Médico Esmeralda',
+  },
+  arboledas: {
+    url: 'https://geriatriaarboledas.com',
+    name: 'Dr. Eduardo Pacheco Ponce – Geriatra en Las Arboledas, Tlalnepantla | Clínica Médica Arboledas',
+  },
+}
+const currentSite = SITE_URLS[SITE_ID] ?? SITE_URLS.esmeralda
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-03-02',
   ssr: true,
@@ -60,8 +75,8 @@ export default defineNuxtConfig({
   // ────────────────────────────────────────────────────────────
   // ── Site URL (usado por @nuxtjs/sitemap y @nuxtjs/robots v5+)
   site: {
-    url: 'https://geriatraatizapan.com',
-    name: 'Dr. Eduardo Pacheco Ponce – Geriatra | Esmeralda y Arboledas, Edo. de México',
+    url: currentSite.url,
+    name: currentSite.name,
   },
 
   robots: {
@@ -74,7 +89,7 @@ export default defineNuxtConfig({
         loc: '/',
         changefreq: 'monthly',
         priority: 1.0,
-        lastmod: '2026-03-01',
+        lastmod: new Date().toISOString().split('T')[0],
       },
     ],
   },
@@ -159,6 +174,10 @@ export default defineNuxtConfig({
           type: 'image/webp',
         },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
       ],
     },
   },

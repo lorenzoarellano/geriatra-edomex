@@ -9,7 +9,7 @@
         <div class="lg:col-span-1">
           <div class="mb-5">
             <NuxtImg
-              src="/logo-main.webp"
+              src="/logo-dark.webp"
               alt="Dr. Eduardo Pacheco Ponce – Médico Geriatra"
               width="200"
               height="70"
