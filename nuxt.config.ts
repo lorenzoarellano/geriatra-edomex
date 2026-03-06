@@ -1,18 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { sites } from './config/sites'
 
 // Determinar configuración del sitio en build time según NUXT_PUBLIC_SITE_ID
 const SITE_ID = process.env.NUXT_PUBLIC_SITE_ID ?? 'esmeralda'
-const SITE_URLS: Record<string, { url: string; name: string }> = {
-  esmeralda: {
-    url: 'https://geriatraatizapan.com',
-    name: 'Dr. Eduardo Pacheco Ponce – Geriatra en Cd. López Mateos | Centro Médico Esmeralda',
-  },
-  arboledas: {
-    url: 'https://geriatriaarboledas.com',
-    name: 'Dr. Eduardo Pacheco Ponce – Geriatra en Las Arboledas, Tlalnepantla | Clínica Médica Arboledas',
-  },
-}
-const currentSite = SITE_URLS[SITE_ID] ?? SITE_URLS.esmeralda
+const currentSite = sites[SITE_ID] ?? sites.esmeralda
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-03-02',
@@ -75,8 +66,8 @@ export default defineNuxtConfig({
   // ────────────────────────────────────────────────────────────
   // ── Site URL (usado por @nuxtjs/sitemap y @nuxtjs/robots v5+)
   site: {
-    url: currentSite.url,
-    name: currentSite.name,
+    url: currentSite.canonicalUrl,
+    name: currentSite.seoTitle,
   },
 
   robots: {
@@ -102,57 +93,39 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'es' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Dr. Eduardo Pacheco Ponce – Geriatra en Atizapán | Esmeralda y Arboledas',
+      title: currentSite.seoTitle,
       meta: [
-        {
-          name: 'description',
-          content:
-            'Médico Geriatra en Atizapán de Zaragoza, Estado de México. Atención integral al adulto mayor en Centro Médico Esmeralda y Clínica Médica Arboledas. Consulta, valoración geriátrica, deterioro cognitivo, prevención de caídas y más.',
-        },
+        { name: 'description', content: currentSite.seoDescription },
         { name: 'robots', content: 'index, follow' },
         { name: 'author', content: 'Dr. Jorge Eduardo Pacheco Ponce' },
         { name: 'theme-color', content: '#4874a2' },
 
-        // ── GEO / Local SEO
-        { name: 'geo.region', content: 'MX-MEX' },
-        { name: 'geo.placename', content: 'Atizapán de Zaragoza, Estado de México' },
-        { name: 'geo.position', content: '19.5697;-99.2292' },
-        { name: 'ICBM', content: '19.5697, -99.2292' },
+        // ── GEO / Local SEO (dinámico por sede)
+        { name: 'geo.region', content: currentSite.geo.region },
+        { name: 'geo.placename', content: currentSite.geo.placename },
+        { name: 'geo.position', content: `${currentSite.geo.lat};${currentSite.geo.lng}` },
+        { name: 'ICBM', content: `${currentSite.geo.lat}, ${currentSite.geo.lng}` },
 
-        // ── Open Graph
+        // ── Open Graph (dinámico por sede)
         { property: 'og:type', content: 'website' },
-        {
-          property: 'og:title',
-          content: 'Dr. Eduardo Pacheco Ponce – Geriatra en Atizapán | Esmeralda y Arboledas',
-        },
-        {
-          property: 'og:description',
-          content:
-            'Geriatría integral enfocada en prevención, funcionalidad y calidad de vida. Atención centrada en la persona y acompañamiento familiar.',
-        },
-        { property: 'og:url', content: 'https://geriatraatizapan.com' },
+        { property: 'og:title', content: currentSite.seoTitle },
+        { property: 'og:description', content: currentSite.seoDescription },
+        { property: 'og:url', content: currentSite.canonicalUrl },
         { property: 'og:locale', content: 'es_MX' },
-        { property: 'og:image', content: 'https://geriatraatizapan.com/social-media-share.webp' },
+        { property: 'og:image', content: `${currentSite.canonicalUrl}/social-media-share.webp` },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
-        { property: 'og:image:alt', content: 'Dr. Eduardo Pacheco Ponce – Médico Geriatra' },
-        { property: 'og:site_name', content: 'Dr. Eduardo Pacheco – Geriatra Atizapán' },
+        { property: 'og:image:alt', content: `${currentSite.seoTitle} – Foto del Dr. Eduardo Pacheco` },
+        { property: 'og:site_name', content: currentSite.name },
 
-        // ── Twitter Card
+        // ── Twitter Card (dinámico por sede)
         { name: 'twitter:card', content: 'summary_large_image' },
-        {
-          name: 'twitter:title',
-          content: 'Dr. Eduardo Pacheco Ponce – Geriatra en Atizapán',
-        },
-        {
-          name: 'twitter:description',
-          content:
-            'Geriatría integral en Esmeralda y Arboledas, Estado de México. Valoración geriátrica, deterioro cognitivo, prevención de caídas.',
-        },
-        { name: 'twitter:image', content: 'https://geriatraatizapan.com/social-media-share.webp' },
+        { name: 'twitter:title', content: currentSite.seoTitle },
+        { name: 'twitter:description', content: currentSite.seoDescription },
+        { name: 'twitter:image', content: `${currentSite.canonicalUrl}/social-media-share.webp` },
       ],
       link: [
-        { rel: 'canonical', href: 'https://geriatraatizapan.com' },
+        { rel: 'canonical', href: currentSite.canonicalUrl, key: 'canonical' },
         // Preconnect a Google Fonts y Maps
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
@@ -166,13 +139,7 @@ export default defineNuxtConfig({
           href: '/hero1.webp',
           type: 'image/webp',
         },
-        // Preload foto del doctor (LCP sección Acerca de)
-        {
-          rel: 'preload',
-          as: 'image',
-          href: '/acercade.webp',
-          type: 'image/webp',
-        },
+
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
