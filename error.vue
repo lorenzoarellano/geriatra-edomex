@@ -34,10 +34,10 @@
             📞 Esmeralda: 55 1663 2510
           </a>
           <a
-            href="tel:5553782878"
+            href="tel:5516632566"
             class="text-sm text-primary hover:underline font-medium"
           >
-            📞 Arboledas: 55 5378 2878
+            📞 Arboledas: 55 1663 2566
           </a>
         </div>
       </div>

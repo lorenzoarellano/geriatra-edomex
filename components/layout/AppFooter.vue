@@ -82,13 +82,24 @@
                 <MapPin :size="14" class="mt-0.5 shrink-0 text-secondary-400" aria-hidden="true" />
                 <span>Calz. de los Jinetes 56, Las Arboledas, C.P. 54020, Tlalnepantla de Baz</span>
               </div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 mb-1">
                 <Phone :size="14" class="shrink-0 text-secondary-400" aria-hidden="true" />
-                <a href="tel:5553782878" class="text-primary-200 hover:text-white transition-colors">55 5378 2878</a>
+                <a href="tel:5516632566" class="text-primary-200 hover:text-white transition-colors">55 1663 2566</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <MessageCircle :size="14" class="shrink-0 text-green-400" aria-hidden="true" />
+                <a
+                  href="https://wa.me/525540359696?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20agendar%20una%20consulta%20en%20sede%20Arboledas."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-primary-200 hover:text-white transition-colors"
+                >
+                  55 4035 9696 (WhatsApp)
+                </a>
               </div>
             </li>
 
-            <!-- WhatsApp compartido -->
+            <!-- WhatsApp directo del doctor -->
             <li class="flex items-center gap-2 border-t border-primary-800 pt-3">
               <MessageCircle :size="14" class="shrink-0 text-secondary-400" aria-hidden="true" />
               <a
@@ -98,7 +109,7 @@
                 class="text-primary-200 hover:text-white transition-colors"
                 aria-label="WhatsApp del Dr. Eduardo Pacheco"
               >
-                {{ site.whatsappDisplay }} · WhatsApp
+                55 3920 3393 · WhatsApp
               </a>
             </li>
 
@@ -137,7 +148,7 @@
 </template>
 
 <script setup lang="ts">
-import { Phone, MapPin, MessageCircle, Clock, Stethoscope } from 'lucide-vue-next'
+import { Phone, MapPin, MessageCircle, Stethoscope } from 'lucide-vue-next'
 
 const site = useSite()
 const { whatsappHref: waHref } = useWhatsapp()

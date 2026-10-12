@@ -49,14 +49,14 @@
             </span>
           </a>
           <a
-            href="tel:5553782878"
+            href="tel:5516632566"
             class="btn-call-secondary text-sm px-4 py-2.5"
-            aria-label="Llamar a recepción Arboledas: 55 5378 2878"
+            aria-label="Llamar a recepción Arboledas: 55 1663 2566"
           >
             <Phone :size="14" aria-hidden="true" />
             <span class="flex flex-col leading-none">
               <span class="text-[9px] font-normal opacity-80 uppercase tracking-wide">Arboledas</span>
-              <span>55 5378 2878</span>
+              <span>55 1663 2566</span>
             </span>
           </a>
         </div>
@@ -102,12 +102,12 @@
               Esmeralda · 55 1663 2510
             </a>
             <a
-              href="tel:5553782878"
+              href="tel:5516632566"
               class="btn-call-secondary justify-center text-sm"
               aria-label="Llamar a recepción Arboledas"
             >
               <Phone :size="16" aria-hidden="true" />
-              Arboledas · 55 5378 2878
+              Arboledas · 55 1663 2566
             </a>
           </div>
         </div>

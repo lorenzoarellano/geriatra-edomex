@@ -121,7 +121,7 @@ const faqs = [
   {
     question: '¿Cómo puedo agendar una cita?',
     answer:
-      'Puede agendar su cita fácilmente llamando directamente al consultorio de <strong>Esmeralda: 55 1663 2510</strong> o al de <strong>Arboledas: 55 5378 2878</strong>. También puede escribir por WhatsApp al <strong>55 3920 3393</strong>.',
+      'Puede agendar su cita fácilmente llamando directamente al consultorio de <strong>Esmeralda: 55 1663 2510</strong> o al de <strong>Arboledas: 55 1663 2566</strong> (WhatsApp Arboledas: <strong>55 4035 9696</strong>). También puede escribir por WhatsApp al <strong>55 3920 3393</strong>.',
   },
   {
     question: '¿Qué costo tiene la consulta geriátrica?',

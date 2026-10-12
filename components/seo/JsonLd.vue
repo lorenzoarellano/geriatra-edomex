@@ -120,7 +120,7 @@ const physicianSchema = {
       '@type': 'MedicalBusiness',
       '@id': 'https://geriatriaarboledas.com/#sede-arboledas',
       name: 'Dr. Eduardo Pacheco Ponce – Geriatra · Clínica Médica Arboledas',
-      telephone: '5553782878',
+      telephone: '5516632566',
       hasMap: 'https://maps.google.com/?q=place_id:0x85d21d0fa272f0db:0x857aad64cbc1a4c6',
       address: {
         '@type': 'PostalAddress',
@@ -301,7 +301,7 @@ const faqSchema = {
       name: '¿Cuánto cuesta la consulta con el Dr. Eduardo Pacheco?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La consulta con el Dr. Jorge Eduardo Pacheco Ponce es de carácter particular. Para conocer el costo vigente comuníquese directamente al consultorio: Esmeralda 55 1663 2510, Arboledas 55 5378 2878 o por WhatsApp 55 3920 3393.',
+        text: 'La consulta con el Dr. Jorge Eduardo Pacheco Ponce es de carácter particular. Para conocer el costo vigente comuníquese directamente al consultorio: Esmeralda 55 1663 2510, Arboledas 55 1663 2566 (WhatsApp Arboledas 55 4035 9696) o por WhatsApp 55 3920 3393.',
       },
     },
     {
@@ -420,7 +420,7 @@ const howToSchema = {
       '@type': 'HowToStep',
       position: 2,
       name: 'Contacte al consultorio',
-      text: `Llame a Esmeralda al 55 1663 2510, a Arboledas al 55 5378 2878, o escriba por WhatsApp al 55 3920 3393.`,
+      text: `Llame a Esmeralda al 55 1663 2510, a Arboledas al 55 1663 2566 (WhatsApp Arboledas 55 4035 9696), o escriba por WhatsApp al 55 3920 3393.`,
     },
     {
       '@type': 'HowToStep',

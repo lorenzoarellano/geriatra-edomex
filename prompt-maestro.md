@@ -153,8 +153,9 @@ Esta es la información de los gustos del Geriatra, el posicionamiento debe apli
 * Plan de acción geriátrico y acompañamiento familiar: Objetivos claros, recomendaciones prácticas, educación a cuidadores y seguimiento para mantener la mejor calidad de vida posible.
 * Atención domiciliaria: Valoración y seguimiento en domicilio en Esmeralda y Arboledas, cuando el paciente tiene limitación para trasladarse.4. Funcionalidades y Estilo de Comunicación* Biblioteca de Salud: Desea incluir pequeñas explicaciones sobre las enfermedades que trata, utilizando el material ya elaborado en su perfil de Doctoralia: https://www.doctoralia.com.mx/jorge-eduardo-pacheco-ponce/geriatra-medico-general/ciudad-lopez-mateos#news-section.Canales de Contacto:
 * WhatsApp: 5539203393.
+* WhatsApp Arboledas: 5540359696.
 * Recepción Esmeralda: 5516632510.
-* Recepción Arboledas: 55 5378 2878.
+* Recepción Arboledas: 55 1663 2566.
 * Redes Sociales: No tiene actualmente, solicita conectar a su perfil de Doctoralia.
 * Tono de voz: Cercano y amigable.
 * Social Proof: Sí desea incluir testimonios de pacientes (pueden ser generados o tomados de referencia).

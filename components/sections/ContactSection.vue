@@ -94,8 +94,20 @@
             </li>
             <li class="flex items-center gap-3">
               <Phone :size="16" class="text-secondary-400 shrink-0" aria-hidden="true" />
-              <a href="tel:5553782878" class="text-primary-600 hover:text-primary-800 font-medium transition-colors">
-                55 5378 2878
+              <a href="tel:5516632566" class="text-primary-600 hover:text-primary-800 font-medium transition-colors">
+                55 1663 2566
+              </a>
+            </li>
+            <li class="flex items-center gap-3">
+              <MessageCircle :size="16" class="text-green-500 shrink-0" aria-hidden="true" />
+              <a
+                href="https://wa.me/525540359696?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20agendar%20una%20consulta%20en%20sede%20Arboledas."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-green-600 hover:text-green-700 font-medium transition-colors"
+                aria-label="WhatsApp sede Arboledas: 55 4035 9696"
+              >
+                55 4035 9696 (WhatsApp)
               </a>
             </li>
             <li class="flex items-center gap-3">
@@ -104,9 +116,9 @@
             </li>
           </ul>
           <a
-            href="tel:5553782878"
+            href="tel:5516632566"
             class="btn-primary w-full justify-center text-sm"
-            aria-label="Llamar a recepción Arboledas: 55 5378 2878"
+            aria-label="Llamar a recepción Arboledas: 55 1663 2566"
           >
             <Phone :size="16" aria-hidden="true" />
             Llamar a Arboledas
